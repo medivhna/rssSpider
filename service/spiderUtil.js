@@ -42,7 +42,7 @@ function fetchContent(url,calback){
  * @returns {Post}
  */
 function transToPost(post,typeId){
-    var index = post.description.indexOf("......");  //去掉多余新闻分享标签
+    // var index = post.description.indexOf("......");  //去掉多余新闻分享标签
     if(index > 0){
         post.description = post.description.substr(0,index)+"......";
     }
