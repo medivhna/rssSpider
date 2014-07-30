@@ -3,32 +3,174 @@
     "sites":
     [
         {
-            "from":"netEase",
-            "contentTag":"#endText",
-            "newsPic":"end_news",
-            "removeElement":"http://img1.cache.netease.com/cnews/css13/img/end_news.png",
+            "from":"baidu",
             "channel":
                 [
                     {
-                        "title":"头条",
-                        "link":"http://news.163.com/special/00011K6L/rss_newstop.xml",
+                        "title":"北京",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=0&name=%B1%B1%BE%A9&tn=rss",
                         "typeId":1
                     },
                     {
-                        "title":"娱乐新闻",
-                        "link":"http://ent.163.com/special/00031K7Q/rss_toutiao.xml",
+                        "title":"上海",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=2354&name=%C9%CF%BA%A3&tn=rss",
                         "typeId":2
                     },
                     {
-                        "title":"国际新闻",
-                        "link":"http://news.163.com/special/00011K6L/rss_gj.xml",
+                        "title":"天津",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=125&name=%CC%EC%BD%F2&tn=rss",
                         "typeId":3
                     },
                     {
-                        "title":"社会新闻",
-                        "link":"http://news.163.com/special/00011K6L/rss_sh.xml",
+                        "title":"重庆",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=6425&name=%D6%D8%C7%EC&tn=rss",
                         "typeId":4
-                    }
+                    },
+					                    {
+                        "title":"河北",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=250&name=%BA%D3%B1%B1&tn=rss",
+                        "typeId":5
+                    },
+                    {
+                        "title":"辽宁",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=1481&name=%C1%C9%C4%FE&tn=rss",
+                        "typeId":6
+                    },
+                    {
+                        "title":"吉林",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=1783&name=%BC%AA%C1%D6&tn=rss",
+                        "typeId":7
+                    },
+                    {
+                        "title":"黑龙江",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=1967&name=%BA%DA%C1%FA%BD%AD&tn=rss",
+                        "typeId":8
+                    },
+										                    {
+                        "title":"山西",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=812&name=%C9%BD%CE%F7&tn=rss",
+                        "typeId":9
+                    },
+                    {
+                        "title":"四川",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=6692&name=%CB%C4%B4%A8&tn=rss",
+                        "typeId":10
+                    },
+                    {
+                        "title":"甘肃",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=8534&name=%B8%CA%CB%E0&tn=rss",
+                        "typeId":11
+                    },
+                    {
+                        "title":"陕西",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=8205&name=%C9%C2%CE%F7&tn=rss",
+                        "typeId":12
+                    },
+					{
+						"title":"河南",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=4371&name=%BA%D3%C4%CF&tn=rss",
+                        "typeId":13
+                    },
+                    {
+                        "title":"山东",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=3996&name=%C9%BD%B6%AB&tn=rss",
+                        "typeId":14
+                    },
+                    {
+                        "title":"湖南",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=5161&name=%BA%FE%C4%CF&tn=rss",
+                        "typeId":15
+                    },
+                    {
+                        "title":"湖北",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=4811&name=%BA%FE%B1%B1&tn=rss",
+                        "typeId":16
+                    },
+					{
+						"title":"江西",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=3636&name=%BD%AD%CE%F7&tn=rss",
+                        "typeId":17
+                    },
+                    {
+                        "title":"江苏",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=2493&name=%BD%AD%CB%D5&tn=rss",
+                        "typeId":18
+                    },
+                    {
+                        "title":"浙江",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=2809&name=%D5%E3%BD%AD&tn=rss",
+                        "typeId":19
+                    },
+                    {
+                        "title":"安徽",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=3072&name=%B0%B2%BB%D5&tn=rss",
+                        "typeId":20
+                    },
+					{
+						"title":"福建",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=3372&name=%B8%A3%BD%A8&tn=rss",
+                        "typeId":21
+                    },
+                    {
+                        "title":"广东",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=5495&name=%B9%E3%B6%AB&tn=rss",
+                        "typeId":22
+                    },
+                    {
+                        "title":"广西",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=5886&name=%B9%E3%CE%F7&tn=rss",
+                        "typeId":23
+                    },
+                    {
+                        "title":"贵州",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=7230&name=%B9%F3%D6%DD&tn=rss",
+                        "typeId":24
+                    },
+					{
+						"title":"云南",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=7527&name=%D4%C6%C4%CF&tn=rss",
+                        "typeId":25
+                    },
+                    {
+                        "title":"内蒙古",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=1167&name=%C4%DA%C3%C9%B9%C5&tn=rss",
+                        "typeId":26
+                    },
+                    {
+                        "title":"青海",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=8782&name=%C7%E0%BA%A3&tn=rss",
+                        "typeId":27
+                    },
+                    {
+                        "title":"宁夏",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=8907&name=%C4%FE%CF%C4&tn=rss",
+                        "typeId":28
+                    },
+					{
+						"title":"新疆",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=9001&name=%D0%C2%BD%AE&tn=rss",
+                        "typeId":29
+                    },
+                    {
+                        "title":"西藏",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=7915&name=%CE%F7%B2%D8&tn=rss",
+                        "typeId":30
+                    },
+                    {
+                        "title":"香港",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=9337&name=%CF%E3%B8%DB&tn=rss",
+                        "typeId":31
+                    },
+                    {
+                        "title":"澳门",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=9436&name=%B0%C4%C3%C5&tn=rss",
+                        "typeId":32
+                    },
+					{
+                        "title":"台湾",
+                        "link":"http://news.baidu.com/n?cmd=7&loc=9442&name=%CC%A8%CD%E5&tn=rss",
+                        "typeId":33
+                    },
                 ]
         }
     ]
