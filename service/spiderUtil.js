@@ -16,7 +16,7 @@ var cheerio = require('cheerio');
  * @param calback
  */
 function fetchContent(url,calback){
-    var req = request(url, {timeout: 10000, pool: false});
+    var req = request(url, {timeout: 50000, pool: false});
     req.setMaxListeners(50);
     req.setHeader('user-agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36')
         .setHeader('accept', 'text/html,application/xhtml+xml');
