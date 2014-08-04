@@ -1,16 +1,42 @@
 {
-    "ttl":60,
+    "ttl":100,
     "sites":
     [
         {
-            "from":"baidu",
-			"contentTag":"p_content",
+            "from":"bj.people.com.cn",
+            "contentTag":"div.content",
+            "textTag":"div.show_text",
             "channel":
                 [
                     {
                         "title":"北京",
                         "link":"http://www.feed43.com/7228617884077600.xml",
                         "typeId":1
+                    }
+                ]
+        },
+        {
+            "from":"news.cnwest.com",
+            "contentTag":"div.cont_detail",
+            "channel":
+                [
+                    {
+                        "title":"陕西",
+                        "link":"http://www.feed43.com/2320561727535577.xml",
+                        "typeId":2
+                    }
+                ]
+        },
+        {
+            "from":"www.sd.xinhuanet.com",
+            "contentTag":"#contentblock",
+            "textTag":"div.content",
+            "channel":
+                [
+                    {
+                        "title":"山东",
+                        "link":"http://www.feed43.com/7081830657228180.xml",
+                        "typeId":3
                     }
                 ]
         }

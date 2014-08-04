@@ -63,7 +63,7 @@ setTimeout(function(){
             console.log('第一轮定时抓取完毕');
         });
     },interval);
-},50000);
+},5000);
 
 
 http.createServer(app).listen(app.get('port'), function(){

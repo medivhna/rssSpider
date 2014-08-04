@@ -47,10 +47,10 @@ function getNewsPage(page,maxPostPerPage,typeId,needPic,callback){
     var filed = {link:0,context:0,records:0,_v:0};
     var filter = {
         typeId:typeId,
-        "descImg":{"$exists":needPic}
+        /*"descImg":{"$exists":needPic}*/
     };
-    Post.find(filter,filed)
-        .sort({"_id":-1})
+    Post.find(filter,filed)/*
+        .sort({"_id":-1})*/
         .skip(page*maxPostPerPage)
         .limit(maxPostPerPage)
         .exec(function(err,posts){

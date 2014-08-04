@@ -23,18 +23,14 @@ function rssSpider(callback){
                     console.log("begin:"+ e.title);
                     spiderUtil.fetchRSS(e.link, e.typeId,function(posts){  //获取rss中所有的新闻
                         posts.forEach(function(post){
-                            spiderUtil.getNewsContent(post.link, site.contentTag,function(context,descImg){
-                                if(descImg != null && descImg.indexOf(site.newsPic) === -1){ //网易新闻自带的图标，不应该作为新闻图片
+                            spiderUtil.getNewsContent(post.link, site.contentTag, site.textTag, function(context, descImg){
+                                if(descImg != null){
                                     post.descImg = descImg;
                                 }
                                 if(context != null && context !== ""){
-                                    var $ = cheerio.load(context);
-                                    $("iframe").remove();
-                                    $("img[src='"+site.removeElement+"']").remove(); //需要删除的元素，根据项目需求来
-                                    post.context = $.html();
-                                    //console.log(post.title);
-                                    postService.addPost(post);  //保存到数据库
+                                    post.context = context;
                                 }
+                                postService.addPost(post);  //保存到数据库
                             });
                         });
                         callback();

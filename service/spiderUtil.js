@@ -9,6 +9,7 @@ var BufferHelper = require('bufferhelper')
     , FeedParser = require('feedparser')
 var Post = require('../model/Post');
 var cheerio = require('cheerio');
+var postService = require('../service/postService');
 
 
 /**抓取网页全文源代码、主要用来抓取新闻正文
@@ -17,7 +18,7 @@ var cheerio = require('cheerio');
  */
 function fetchContent(url,calback){
     var req = request(url, {timeout: 10000, pool: false});
-    req.setMaxListeners(50);
+    req.setMaxListeners(5);
     req.setHeader('user-agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36')
         .setHeader('accept', 'text/html,application/xhtml+xml');
 
@@ -30,7 +31,7 @@ function fetchContent(url,calback){
             bufferHelper.concat(chunk);
         });
         res.on('end',function(){
-            var result = iconv.decode(bufferHelper.toBuffer(),'GBK');
+            var result = iconv.decode(bufferHelper.toBuffer(),'UTF8');
             calback(result);
         });
     });
@@ -88,7 +89,7 @@ function fetchRSS(url,typeId,callback) {
     var posts;
     // Define our streams
     var req = request(url, {timeout: 10000, pool: false});
-    req.setMaxListeners(50);
+    req.setMaxListeners(10);
     // Some feeds do not response without user-agent and accept headers.
     req.setHeader('user-agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36')
         .setHeader('accept', 'text/html,application/xhtml+xml');
@@ -99,7 +100,7 @@ function fetchRSS(url,typeId,callback) {
     req.on('response', function(res) {
         var stream = this;
         posts = [];
-        if (res.statusCode !== 200){ return this.emit('error', new Error('Bad status code'));}
+        if (res.statusCode !== 200){ console.log(res.statusCode);return this.emit('error', new Error('Bad status code'));}
         //charset = getParams(res.headers['content-type'] || '').charset;
         stream.pipe(feedparser);
     });
@@ -116,6 +117,7 @@ function fetchRSS(url,typeId,callback) {
         while (post = this.read()) {
             posts.push(transToPost(post,typeId));//添加到数组
         }
+        postService.savePosts(posts);
     });
 }
 
@@ -125,19 +127,35 @@ function fetchRSS(url,typeId,callback) {
  * @param url 新闻的url地址
  * @param tag 新闻在web界面开始的标签 如:<div id='content'>新闻正文</div>。 content即为tag
  */
-function getNewsContent(url,tag,callback){
+function getContext(htmlData, textTag){
+    var $ = cheerio.load(htmlData);
+    return $(textTag).html();
+}
+function getImg(htmlData, textTag){
+    var $ = cheerio.load(htmlData);
+    return $(textTag).find("img")[0];
+}
+function getNewsContent(url,contentTag,textTag,callback){
     console.log(url);
     fetchContent(url,function(htmlData){
         var $ = cheerio.load(htmlData);
-        var context = $(tag).html();
-        var img = $(tag).find("img")[0];
-        var imgPath ;
-        if(img !== null){
-            imgPath = $(img).attr("src");  //新闻的缩略图
+        var context;
+        var img;
+        if (textTag == null){
+            context = $(contentTag).html();
+            img = $(contentTag).find("img")[0];
+        } else {
+            var temp = $(contentTag).html();
+            context = getContext(temp, textTag);
+            img = getImg(temp, textTag);
         }
-        callback(context,imgPath);   //回调新闻正文和图片
+        if(img !== null){
+            var imgPath = $(img).attr("src");  //新闻的缩略图
+        }
+        callback(context, imgPath);   //回调新闻正文和图片
     });
 }
+
 exports.fetchRSS = fetchRSS;
 exports.fetchContent = fetchContent;
 exports.getNewsContent = getNewsContent;
