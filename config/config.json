@@ -1,8 +1,8 @@
 {
-    "url":"mongodb://localhost:27017/newsServer",
-    "auth":"username:pass@mongodb://localhost:27017/newsServer",
-    "serverSite":"http://127.0.0.1:8001/",
+    "url":"mongodb://nomdb.chinacloudapp.cn/newsServer",
+    "auth":"medivhna:123ewq@mongodb://nomdb.chinacloudapp.cn/newsServer",
+    "serverSite":"http://newsonmap.chinacloudsites.cn/",
     "db_name":"newsServer",
-    "db_host":"127.0.0.1",
+    "db_host":"nomdb.chinacloudapp.cn",
     "db_port":"27017"
 }
