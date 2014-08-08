@@ -23,7 +23,7 @@ function rssSpider(callback){
                     console.log("begin:"+ e.title);
                     spiderUtil.fetchRSS(e.link, e.typeId,function(posts){  //获取rss中所有的新闻
                         posts.forEach(function(post){
-                            spiderUtil.getNewsContent(post.link, site.contentTag, site.textTag, function(context, descImg){
+                            spiderUtil.getNewsContent(post.link, site.contentTag, site.textTag, site.encode, function(context, descImg){
                                 if(descImg != null){
                                     post.descImg = descImg;
                                 }

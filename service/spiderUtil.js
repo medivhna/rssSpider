@@ -16,7 +16,7 @@ var postService = require('../service/postService');
  * @param url 需要抓取的url地址
  * @param calback
  */
-function fetchContent(url,calback){
+function fetchContent(url,encode,calback){
     var req = request(url, {timeout: 10000, pool: false});
     req.setMaxListeners(5);
     req.setHeader('user-agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36')
@@ -31,7 +31,7 @@ function fetchContent(url,calback){
             bufferHelper.concat(chunk);
         });
         res.on('end',function(){
-            var result = iconv.decode(bufferHelper.toBuffer(),'UTF8');
+            var result = iconv.decode(bufferHelper.toBuffer(),encode);
             calback(result);
         });
     });
@@ -135,9 +135,9 @@ function getImg(htmlData, textTag){
     var $ = cheerio.load(htmlData);
     return $(textTag).find("img")[0];
 }
-function getNewsContent(url,contentTag,textTag,callback){
+function getNewsContent(url,contentTag,textTag,encode,callback){
     console.log(url);
-    fetchContent(url,function(htmlData){
+    fetchContent(url,encode,function(htmlData){
         var $ = cheerio.load(htmlData);
         var context;
         var img;

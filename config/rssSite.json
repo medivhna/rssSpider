@@ -1,11 +1,12 @@
 {
-    "ttl":100,
+    "ttl":60,
     "sites":
     [
         {
             "from":"bj.people.com.cn",
             "contentTag":"div.content",
             "textTag":"div.show_text",
+            "encode":"GBK",
             "channel":
                 [
                     {
@@ -18,6 +19,7 @@
         {
             "from":"news.cnwest.com",
             "contentTag":"div.cont_detail",
+            "encode":"UTF8",
             "channel":
                 [
                     {
@@ -31,6 +33,7 @@
             "from":"www.sd.xinhuanet.com",
             "contentTag":"#contentblock",
             "textTag":"div.content",
+            "encode":"UTF8",
             "channel":
                 [
                     {
